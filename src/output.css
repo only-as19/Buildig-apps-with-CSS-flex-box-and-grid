@@ -12,13 +12,16 @@
     --color-gray-400: oklch(70.7% 0.022 261.325);
     --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-gray-600: oklch(44.6% 0.03 256.802);
+    --color-white: #fff;
     --spacing: 0.25rem;
+    --container-md: 28rem;
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
+    --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
@@ -170,20 +173,8 @@
   }
 }
 @layer utilities {
-  .m-0 {
-    margin: calc(var(--spacing) * 0);
-  }
-  .mx-0 {
-    margin-inline: calc(var(--spacing) * 0);
-  }
   .mx-auto {
     margin-inline: auto;
-  }
-  .mt-0 {
-    margin-top: calc(var(--spacing) * 0);
-  }
-  .mt-2 {
-    margin-top: calc(var(--spacing) * 2);
   }
   .mt-4 {
     margin-top: calc(var(--spacing) * 4);
@@ -203,6 +194,12 @@
   .h-40 {
     height: calc(var(--spacing) * 40);
   }
+  .min-h-0 {
+    min-height: calc(var(--spacing) * 0);
+  }
+  .min-h-screen {
+    min-height: 100vh;
+  }
   .w-11 {
     width: calc(var(--spacing) * 11);
   }
@@ -212,6 +209,9 @@
   .max-w-\[800px\] {
     max-width: 800px;
   }
+  .min-w-0 {
+    min-width: calc(var(--spacing) * 0);
+  }
   .border-collapse {
     border-collapse: collapse;
   }
@@ -220,6 +220,9 @@
   }
   .flex-col {
     flex-direction: column;
+  }
+  .items-center {
+    align-items: center;
   }
   .items-end {
     align-items: flex-end;
@@ -234,29 +237,18 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .bg-\[\#0\] {
-    background-color: #0;
+  .border-4 {
+    border-style: var(--tw-border-style);
+    border-width: 4px;
   }
-  .bg-\[\#05\] {
-    background-color: #05;
-  }
-  .bg-\[\#05c\] {
-    background-color: #05c;
-  }
-  .bg-\[\#05cb\] {
-    background-color: #05cb;
+  .border-white {
+    border-color: var(--color-white);
   }
   .bg-\[\#05cbe9\] {
     background-color: #05cbe9;
   }
-  .bg-\[\#111d4\] {
-    background-color: #111d4;
-  }
   .bg-\[\#111d4a\] {
     background-color: #111d4a;
-  }
-  .bg-amber-50 {
-    background-color: var(--color-amber-50);
   }
   .bg-amber-300 {
     background-color: var(--color-amber-300);
@@ -264,38 +256,14 @@
   .object-cover {
     object-fit: cover;
   }
-  .p-2 {
-    padding: calc(var(--spacing) * 2);
-  }
-  .p-5 {
-    padding: calc(var(--spacing) * 5);
-  }
   .p-7 {
     padding: calc(var(--spacing) * 7);
-  }
-  .p-8 {
-    padding: calc(var(--spacing) * 8);
   }
   .px-8 {
     padding-inline: calc(var(--spacing) * 8);
   }
   .py-1 {
     padding-block: calc(var(--spacing) * 1);
-  }
-  .py-2 {
-    padding-block: calc(var(--spacing) * 2);
-  }
-  .py-3 {
-    padding-block: calc(var(--spacing) * 3);
-  }
-  .py-6 {
-    padding-block: calc(var(--spacing) * 6);
-  }
-  .align-baseline {
-    vertical-align: baseline;
-  }
-  .align-bottom {
-    vertical-align: bottom;
   }
   .text-2xl {
     font-size: var(--text-2xl);
@@ -313,38 +281,21 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
-  .text-\[\#0\] {
-    color: #0;
-  }
-  .text-\[\#05\] {
-    color: #05;
-  }
-  .text-\[\#05c\] {
-    color: #05c;
-  }
-  .text-\[\#05cb\] {
-    color: #05cb;
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
   }
   .text-\[\#05cbe9\] {
     color: #05cbe9;
   }
-  .text-\[\#05cbe\] {
-    color: #05cbe;
-  }
   .text-\[\#111d4a\] {
     color: #111d4a;
-  }
-  .text-\[\#\] {
-    color: #;
   }
   .text-gray-400 {
     color: var(--color-gray-400);
   }
-  .text-gray-500 {
-    color: var(--color-gray-500);
-  }
-  .text-gray-600 {
-    color: var(--color-gray-600);
+  .text-white {
+    color: var(--color-white);
   }
   .underline {
     text-decoration-line: underline;
@@ -352,6 +303,36 @@
   .outline {
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
+  }
+  .sm\:mt-auto {
+    @media (width >= 40rem) {
+      margin-top: auto;
+    }
+  }
+  .sm\:flex {
+    @media (width >= 40rem) {
+      display: flex;
+    }
+  }
+  .sm\:h-80 {
+    @media (width >= 40rem) {
+      height: calc(var(--spacing) * 80);
+    }
+  }
+  .sm\:w-md {
+    @media (width >= 40rem) {
+      width: var(--container-md);
+    }
+  }
+  .sm\:flex-col {
+    @media (width >= 40rem) {
+      flex-direction: column;
+    }
+  }
+  .sm\:flex-row {
+    @media (width >= 40rem) {
+      flex-direction: row;
+    }
   }
 }
 @property --tw-border-style {
